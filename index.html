@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+
+
+    <script>
+
+
+
+
+function putCostumerId(costumerId,id,employeeId,orderDate,requiredDate,shippedDate,shipVia,freight,shipName){
+    fetch('https://northwind.vercel.app/api/orders',{
+        method:'POST',
+        headers:{
+            'Content-type':'application/json'
+        },
+        body:JSON.stringify({
+            "customerId":costumerId,
+            "id":id,
+            "employeeId":employeeId,
+            "orderDate":orderDate,
+            "requiredDate":requiredDate,
+            "shippedDate":shippedDate,
+            "shipVia":shipVia,
+            "freight":freight,
+            "shipName":shipName
+
+        })
+    })
+    .then(res=>res.json())
+    .then(d=>{
+        console.log(d)
+    })
+}
+
+
+
+function getCostumers(){
+    fetch('https://northwind.vercel.app/api/orders',{
+        method:'GET',
+        headers:{
+            'Content-type':'application/json'
+        },
+        body:JSON.stringify()
+    })
+    .then(res=>res.json())
+    .then(d=>{
+        console.log(d)
+    })
+}
+
+function getSuppliers(){
+    fetch('https://northwind.vercel.app/api/suppliers',{
+        method:'GET',
+        headers:{
+            'Content-type':'application/json'
+        },
+        body:JSON.stringify()
+    })
+    .then(res=>res.json())
+    .then(d=>{
+        console.log(d)
+    })
+}
+
+
+
+
+    </script>
+</body>
+</html>
